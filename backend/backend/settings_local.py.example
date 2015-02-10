@@ -9,5 +9,7 @@ DATABASES = {
         'NAME': 'wedding',
         'USER': 'wedding_user',
         'PASSWORD': 'iecoojaB7chu7eig_u8queifohbi',
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
     }
 }
