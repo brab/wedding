@@ -10,9 +10,11 @@ class wedding {
 
   class { 'python':
     version => 'system',
+    dev     => true,
     pip     => true,
   }
 
   class { 'wedding::users': }
   class { 'wedding::psql': }
+  class { 'wedding::django': }
 }
