@@ -1,13 +1,18 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <title>{% block title %}Jenn and Ben's Wedding{% endblock %}</title>
-    <link rel="stylesheet" href="bootstrap.css"></link>
-    <link rel="stylesheet" href="styles.css"></link>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"></link>
+    <link rel="stylesheet" href="{% static 'base/styles.css' %}"></link>
   </head>
   <body>
     <div id="header">{% block header %}header{% endblock %}</div>
     <div id="navigation">{% block navigation %}navigation{% endblock %}</div>
     <div id="content">{% block content %}content{% endblock %}</div>
+    {% block scripts %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    {% endblock %}
   </body>
 </html>
