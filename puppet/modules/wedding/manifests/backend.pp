@@ -8,4 +8,10 @@ class wedding::backend {
     ensure  => 'latest',
     owner   => 'root'
   }
+
+  python::pip { 'ipython':
+    pkgname => 'ipython',
+    ensure  => 'latest',
+    owner   => 'root'
+  }
 }
