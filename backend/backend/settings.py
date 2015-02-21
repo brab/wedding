@@ -86,7 +86,7 @@ USE_TZ = True
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static', ),
 )
-STATIC_ROOT = 'staticfiles'
+STATIC_ROOT = 'backend/staticfiles'
 STATIC_URL = '/static/'
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
