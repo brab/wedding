@@ -3,12 +3,6 @@ class wedding::backend {
     owner => 'root',
   }
 
-  python::pip { 'gunicorn':
-    pkgname => 'gunicorn',
-    ensure  => 'latest',
-    owner   => 'root'
-  }
-
   python::pip { 'ipython':
     pkgname => 'ipython',
     ensure  => 'latest',

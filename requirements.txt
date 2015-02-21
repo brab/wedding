@@ -1,3 +1,4 @@
 dj_static==0.0.6
 django==1.7
+gunicorn==19.2.1
 psycopg2==2.6
