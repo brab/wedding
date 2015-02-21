@@ -89,6 +89,10 @@ STATICFILES_DIRS = (
 STATIC_ROOT = 'staticfiles'
 STATIC_URL = '/static/'
 
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+ALLOWED_HOSTS = ['*']
+
 try:
     #pylint: disable=wildcard-import
     from .settings_local import *
