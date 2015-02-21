@@ -17,4 +17,5 @@ class wedding {
   class { 'wedding::users': }
   class { 'wedding::psql': }
   class { 'wedding::django': }
+  class { 'wedding::backend': }
 }
