@@ -36,10 +36,38 @@
           </div>
           <div class="collapse navbar-collapse" id="navbar-collapse-1">
             <ul class="nav navbar-nav">
-              <li><a href="/">The Day</a></li>
-              <li><a href="/">Travel</a></li>
-              <li><a href="/">Our People</a></li>
-              <li><a href="/">Attendance</a></li>
+              <li>
+                <a
+                  class="{% block nav_active_the_day %}{% endblock %}"
+                  href="/"
+                  >
+                  The Day
+                </a>
+              </li>
+              <li>
+                <a
+                  class="{% block nav_active_travel %}{% endblock %}"
+                  href="/"
+                  >
+                  Travel
+                </a>
+              </li>
+              <li>
+                <a
+                  class="{% block nav_active_people %}{% endblock %}"
+                  href="/"
+                  >
+                  Our People
+                </a>
+              </li>
+              <li>
+                <a
+                  class="{% block nav_active_rsvp %}{% endblock %}"
+                  href="/"
+                  >
+                  Attendance
+                </a>
+              </li>
             </ul>
           </div>
         </div>
