@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>{% block title %}Jenn and Ben's Wedding{% endblock %}</title>
+    <title>{% block title %}Jenn &amp; Ben's Wedding{% endblock %}</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"></link>
     <link rel="stylesheet" href="{% static 'base/styles.css' %}"></link>
   </head>
@@ -32,7 +32,7 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/">Jenn and Ben</a>
+            <a class="navbar-brand" href="/">Jenn &amp; Ben</a>
           </div>
           <div class="collapse navbar-collapse" id="navbar-collapse-1">
             <ul class="nav navbar-nav">
@@ -43,7 +43,7 @@
                 <a href="/">Travel</a>
               </li>
               <li class="{% block nav_active_people %}{% endblock %}">
-                <a href="/">Our People</a>
+                <a href="/">People</a>
               </li>
               <li class="{% block nav_active_rsvp %}{% endblock %}">
                 <a href="/">Attendance</a>
