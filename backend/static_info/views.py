@@ -23,3 +23,13 @@ def itinerary(request):
         'static_info/itinerary.html',
         {},
     )
+
+def travel(request):
+    """
+    Travelling to Vancouver
+    """
+    return render(
+        request,
+        'static_info/travel.html',
+        {},
+    )

@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block header %}
+<img
+  class="image-responsive"
+  src="{% static 'static_info/travel/banner_travel.jpg' %}"
+  alt="wedding banner"
+  style="width:100%;"
+>
+{% endblock %}
+
+{% block nav_active_travel %}active{% endblock %}
+
+{% block content %}
+<div class="row">
+  <div class="col-xs-12">
+    <h1>
+      Travelling to Vancouver
+    </h1>
+    <p>
+      The weekend of our wedding is High Season in Vancouver so everything is going to be busy; book things early to make sure you don't miss out!
+    </p>
+    <p>
+      Downtown Vancouver is full of fantastic places to eat, and amazing things to do. <a href="http://www.vancitybuzz.com/" target="_blank">VancityBuzz</a> has some great recommendations for nearly everything you might like to do in our beautify city!
+    </p>
+    <p>
+      If you'd like to book a hotel, we'll post some information here on a few hotels near The Vancouver Rowing Club soon.
+    </p>
+
+    <h2>Flights</h2>
+    <p>
+      There are many flights into <a href="http://www.yvr.ca" target="_blank">The Vancouver Airport</a> on a daily basis (sometimes even hourly). From the airport there's a <a href="https://goo.gl/maps/iHdZp" target="_blank">rapid-transit</a> line that will take you directly to Downtown in only twenty-five minutes.
+    </p>
+
+    <h2>Accommodation</h2>
+    <p>
+      We're working on reserving a selection of hotel room blocks for our out-of-town guests and we'll post information here as soon as it's available.
+    </p>
+
+    <h2>Getting There</h2>
+    <p>
+      We encourage all of our guests to take <a href="https://goo.gl/maps/Xscbv" target="_blank">public transit</a> or a <a href="https://www.google.ca/search?q=Vancouver%20BC%20Taxi%20Companies" target="_blank">taxi</a> to and from our celebration.
+    </p>
+    <p>
+      For those that would like to drive, parking in Stanley Park, near the Vancouver Rowing Club, is plentiful if you don't mind a short walk. All parking will cost $11.00 per day.
+    </p>
+
+    <h2>Weather</h2>
+    <p>
+      Typically, on August 29th, the sun is out, the afternoon warms up to a comfortable 20&deg;C and the evening cools to around 14&deg;C. It's unlikely that we'll see any rain, but <em>it is Vancouver</em>, so you never really know for sure.
+    </p>
+    <p>
+      <a href="http://weather.gc.ca/city/pages/bc-74_metric_e.html" target="_blank">Environment Canada</a> is usually pretty accurate with their forecasts. They don't do long term predictions, but if you take a look before you come our way you'll have a pretty good idea how it'll be when you get here.
+    </p>
+  </div>
+</div>
+{% endblock %}
