@@ -1,0 +1,24 @@
+@import url(http://fonts.googleapis.com/css?family=Parisienne|Cardo);
+
+h1 {
+  font-family: "Parisienne";
+  font-size: 70px;
+  margin-bottom: 30px;
+}
+h2 { font-family: "Parisienne"; }
+body {
+  color: #555555;
+  font-size: 20px;
+  font-family: "Cardo";
+}
+a { color: #9932CC; }
+a:hover {
+  color: #555555;
+  text-decoration: none;
+}
+
+.navbar { border-radius: 0; }
+.navbar-default { background-color: transparent; }
+.navbar-nav>li { margin-right: 20px; }
+.navbar-brand { font-size: 20px; }
+.container>.navbar-header { margin-right: 30px; }

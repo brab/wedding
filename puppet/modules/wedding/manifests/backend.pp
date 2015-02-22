@@ -8,4 +8,10 @@ class wedding::backend {
     ensure  => 'latest',
     owner   => 'root'
   }
+
+  python::pip { 'pyinotify':
+    pkgname => 'pyinotify',
+    ensure  => 'latest',
+    owner   => 'root'
+  }
 }
