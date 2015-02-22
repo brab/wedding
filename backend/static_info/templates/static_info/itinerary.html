@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block header %}
+<img
+  class="image-responsive"
+  src="{% static 'static_info/the_day/banner_the-day.jpg' %}"
+  alt="wedding banner"
+  style="width:100%;"
+>
+{% endblock %}
+
+{% block nav_active_the_day %}active{% endblock %}
+
+{% block content %}
+<div class="row">
+  <div class="col-xs-12">
+    <h1>
+      The Day
+    </h1>
+    <p>
+      We hope that you'll join us at the <a href="https://www.vancouverrowingclub.ca/" target="_blanK">Vancouver Rowing Club</a> in Stanley Park on Saturday August 29th, 2015.
+    </p>
+    <p>
+      The afternoon will begin with a patio ceremony overlooking the seawall and harbour toward the evening sun.
+    </p>
+    <p>
+      Our guests will then be invited to enjoy a cocktail at the Rowing Club and tour the park while we take a break with our wedding party for some nostalgic photography.
+    </p>
+    <p>
+      Once our photographer is satisfied with us, we'll return to the Rowing Club for an evening of dinner, drinks and dancing.
+    </p>
+  </div>
+</div>
+{% endblock %}

@@ -9,4 +9,5 @@ from static_info import views
 urlpatterns = patterns( #pylint: disable=invalid-name
     '',
     url(r'^$', views.index, name='index', ),
+    url(r'^the-day$', views.itinerary, name='itinerary', ),
 )

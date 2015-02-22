@@ -5,7 +5,10 @@ h1 {
   font-size: 70px;
   margin-bottom: 30px;
 }
-h2 { font-family: "Parisienne"; }
+h2 {
+  font-family: "Parisienne";
+  font-size: 45px;
+}
 body {
   color: #555555;
   font-size: 20px;

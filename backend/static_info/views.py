@@ -13,3 +13,13 @@ def index(request):
         'static_info/index.html',
         {},
     )
+
+def itinerary(request):
+    """
+    The schedule of the wedding day
+    """
+    return render(
+        request,
+        'static_info/itinerary.html',
+        {},
+    )
