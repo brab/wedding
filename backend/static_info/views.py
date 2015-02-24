@@ -24,6 +24,26 @@ def itinerary(request):
         {},
     )
 
+def people(request):
+    """
+    Our wedding party
+    """
+    return render(
+        request,
+        'static_info/people.html',
+        {},
+    )
+
+def rsvp(request):
+    """
+    RSVP
+    """
+    return render(
+        request,
+        'static_info/rsvp.html',
+        {},
+    )
+
 def travel(request):
     """
     Travelling to Vancouver

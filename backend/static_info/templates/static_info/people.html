@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block header %}
+<img
+  class="image-responsive"
+  src="{% static 'static_info/people/banner_people.jpg' %}"
+  alt="wedding banner"
+  style="width:100%;"
+>
+{% endblock %}
+
+{% block nav_active_people %}active{% endblock %}
+
+{% block content %}
+<div class="row">
+  <div class="col-xs-12">
+    <h1>
+      The Bridal Party
+    </h1>
+    <p>
+      We know you're dying to know who's in our party; we are too!
+    </p>
+  </div>
+</div>
+{% endblock %}

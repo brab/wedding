@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block header %}
+<img
+  class="image-responsive"
+  src="{% static 'static_info/rsvp/banner_rsvp.jpg' %}"
+  alt="wedding banner"
+  style="width:100%;"
+>
+{% endblock %}
+
+{% block nav_active_rsvp %}active{% endblock %}
+
+{% block content %}
+<div class="row">
+  <div class="col-xs-12">
+    <h1>
+      R&eacute;pondez S'il Vous Pla&icirc;t
+    </h1>
+    <p>
+      We're eager to hear from you, but Ben hasn't finished building this part of the site yet. Please check back soon and watch your mailbox for the invitation.
+    </p>
+  </div>
+</div>
+{% endblock %}
