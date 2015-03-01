@@ -4,28 +4,21 @@ RSVP Models
 from django.db import models
 
 
+class Guest(models.Model):
+    """
+    A Guest object
+    """
+    attending = models.BooleanField(default=True)
+    invite = models.ForeignKey('Invite')
+    name = models.CharField(max_length=128)
+
+
 class Invite(models.Model):
     """
     An invitation object
     """
-    _names = models.CharField()
-    code = models.CharField()
+    code = models.CharField(max_length=16, unique=True, )
     #events_attending = models.
+    description = models.CharField(max_length=64)
     notes = models.TextField()
-    num_guests = models.IntegerField(default=1)
     updated = models.DateTimeField(auto_now=True)
-
-
-    @property
-    def names(self):
-        """
-        Names property
-        """
-        return self._names.split(',')
-
-    @names.setter
-    def names(self, names_list, ):
-        """
-        Names property setter
-        """
-        self._names = ','.join(names_list)

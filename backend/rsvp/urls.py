@@ -9,5 +9,5 @@ from rsvp import views
 urlpatterns = patterns( #pylint: disable=invalid-name
     '',
     url(r'^$', views.index, name='rsvp', ),
-    url(r'^detail$', views.index, name='rsvp_detail', ),
+    url(r'^(?P<code>\w+)$', views.detail, name='rsvp_detail', ),
 )

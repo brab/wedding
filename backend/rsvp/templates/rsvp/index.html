@@ -20,7 +20,7 @@
     </h1>
     <form
       class="form-horizontal"
-      action=""
+      action="{% url 'rsvp' %}"
       method="post"
       >
       {% csrf_token %}
@@ -31,14 +31,25 @@
             <input
             class="form-control input-lg"
             id="invite_word"
+            name="invite_word"
             placeholder="Border Collie"
             >
             <span class="input-group-btn">
-              <button class="btn btn-default btn-lg">Next</button>
+              <button
+                class="btn btn-default btn-lg"
+                type="submit"
+                >
+                Next
+              </button>
             </span>
           </div>
         </div>
       </div>
+      {% if error %}
+      <div class="alert alert-warning">
+        {{ error }}
+      </div>
+      {% endif %}
     </form>
   </div>
 </div>
