@@ -7,5 +7,6 @@ from django.contrib import admin
 urlpatterns = patterns( #pylint: disable=invalid-name
     '',
     url(r'', include('static_info.urls')),
+    url(r'^rsvp/', include('rsvp.urls')),
     url(r'^admin/', include(admin.site.urls)),
 )
