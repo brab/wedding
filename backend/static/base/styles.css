@@ -25,3 +25,5 @@ a:hover {
 .navbar-nav>li { margin-right: 20px; }
 .navbar-brand { font-size: 20px; }
 .container>.navbar-header { margin-right: 30px; }
+
+.form-control:focus { border-color: #9932CC; }
