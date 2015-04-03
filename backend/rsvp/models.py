@@ -4,21 +4,46 @@ RSVP Models
 from django.db import models
 
 
+class Event(models.Model):
+    """
+    An Event object
+    """
+    datetime_start = models.DateTimeField()
+    datetime_end = models.DateTimeField()
+    description = models.CharField(max_length=256)
+    name = models.CharField(max_length=64)
+
+    def __unicode__(self):
+        return u'{0}'.format(self.name)
+
+
+class GuestGroup(models.Model):
+    """
+    An guest group object
+    """
+    code = models.CharField(max_length=16, unique=True, )
+    updated = models.DateTimeField(auto_now=True)
+
+    def __unicode__(self):
+        return u'{0}'.format(self.code)
+
+
 class Guest(models.Model):
     """
     A Guest object
     """
-    attending = models.BooleanField(default=True)
-    invite = models.ForeignKey('Invite')
     name = models.CharField(max_length=128)
+    group = models.ForeignKey(GuestGroup, blank=True, null=True, )
+    events = models.ManyToManyField(Event, through='Attendance', )
+
+    def __unicode__(self):
+        return u'{0}'.format(self.name)
 
 
-class Invite(models.Model):
+class Attendance(models.Model):
     """
-    An invitation object
+    An attendance object
     """
-    code = models.CharField(max_length=16, unique=True, )
-    #events_attending = models.
-    description = models.CharField(max_length=64)
-    notes = models.TextField()
-    updated = models.DateTimeField(auto_now=True)
+    event = models.ForeignKey(Event)
+    guest = models.ForeignKey(Guest)
+    attending = models.BooleanField(default=True)

@@ -3,18 +3,35 @@ RSVP Module Admin Site Config
 """
 from django.contrib import admin
 
-from rsvp.models import Guest, Invite
+from rsvp.models import Event, Guest, GuestGroup
 
 
-class GuestInline(admin.TabularInline):
+class EventInline(admin.TabularInline):
     extra = 0
-    fields = ['name', ]
     min_num = 1
-    model = Guest
+    model = Guest.events.through
 
 
-@admin.register(Invite)
-class InviteAdmin(admin.ModelAdmin):
-    fields = ['description', 'code', ]
-    inlines = [GuestInline, ]
-    list_display = ('description', 'code', )
+class GuestGroupInline(admin.TabularInline):
+    extra = 0
+    min_num = 1
+    model = GuestGroup
+
+
+@admin.register(Event)
+class EventAdmin(admin.ModelAdmin):
+    fields = ['name', 'description', 'datetime_start', 'datetime_end', ]
+    list_display = ('name', 'datetime_start', )
+
+
+@admin.register(GuestGroup)
+class GuestGroupAdmin(admin.ModelAdmin):
+    fields = ['code', ]
+    list_display = ['code', ]
+
+
+@admin.register(Guest)
+class GuestAdmin(admin.ModelAdmin):
+    fields = ['name', 'group', ]
+    list_display = ['name', 'group', ]
+    inlines = [EventInline, ]
