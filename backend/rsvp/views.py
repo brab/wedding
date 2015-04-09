@@ -5,7 +5,7 @@ from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 
-from rsvp.models import GuestGroup
+from rsvp.models import Attendance, GuestGroup
 
 def detail(request, code):
     """
@@ -21,11 +21,13 @@ def detail(request, code):
             {'error': 'Please re-enter your Invite Word', },
         )
     if request.method == 'POST':
-        print request.POST
-        for ind, guest in enumerate(guest_group.guest_set.all()):
-            guest.name = request.POST.get('guest_{0}_name'.format(ind))
-            guest.save()
-        guest_group.notes = request.POST.get('notes', '', ).strip()
+        attendances = Attendance.objects.filter(guest__in=guest_group.guest_set.all())
+        for attendance in attendances:
+            attendance.attending = True \
+                if 'attendance_{0}'.format(attendance.id) in request.POST \
+                else False
+            attendance.save()
+        guest_group.responded = True
         guest_group.save()
     return render(
         request,

@@ -23,6 +23,7 @@ class GuestGroup(models.Model):
     """
     code = models.CharField(max_length=16, unique=True, )
     updated = models.DateTimeField(auto_now=True)
+    responded = models.BooleanField(default=False)
 
     def __unicode__(self):
         return u'{0}'.format(self.code)

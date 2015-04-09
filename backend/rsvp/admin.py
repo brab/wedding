@@ -26,8 +26,8 @@ class EventAdmin(admin.ModelAdmin):
 
 @admin.register(GuestGroup)
 class GuestGroupAdmin(admin.ModelAdmin):
-    fields = ['code', ]
-    list_display = ['code', ]
+    fields = ['code', 'responded', ]
+    list_display = ['code', 'responded', ]
 
 
 @admin.register(Guest)
