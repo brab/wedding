@@ -54,6 +54,17 @@
       </nav>
     </div>
     <div class="container">
+
+      {% if messages %}
+      {% for message in messages %}
+      <div class="alert alert-{{ message.tags }}">
+        <p class="text-center">
+          {{ message }}
+        </p>
+      </div>
+      {% endfor %}
+      {% endif %}
+
       <div id="content">{% block content %}content{% endblock %}</div>
       {% block scripts %}
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>

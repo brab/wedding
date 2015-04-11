@@ -49,11 +49,13 @@
             <td>{{ guest.name }}</td>
             {% for attendance in guest.attendance_set.all %}
             <td>
-              <input
-                name="attendance_{{ attendance.id }}"
-                type="checkbox"
-                {% if attendance.attending %}checked="checked"{% endif %}
-                >
+              <p class="text-center">
+                <input
+                 name="attendance_{{ attendance.id }}"
+                 type="checkbox"
+                 {% if attendance.attending %}checked="checked"{% endif %}
+                 >
+              </p>
             </td>
             {% endfor %}
           </tr>

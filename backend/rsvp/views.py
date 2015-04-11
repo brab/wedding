@@ -1,9 +1,10 @@
 """
 RSVP app views
 """
+from django.contrib import messages
 from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 
 from rsvp.models import Attendance, GuestGroup
 
@@ -21,7 +22,9 @@ def detail(request, code):
             {'error': 'Please re-enter your Invite Word', },
         )
     if request.method == 'POST':
-        attendances = Attendance.objects.filter(guest__in=guest_group.guest_set.all())
+        attendances = Attendance.objects.filter(
+            guest__in=guest_group.guest_set.all()
+        )
         for attendance in attendances:
             attendance.attending = True \
                 if 'attendance_{0}'.format(attendance.id) in request.POST \
@@ -29,6 +32,11 @@ def detail(request, code):
             attendance.save()
         guest_group.responded = True
         guest_group.save()
+        messages.success(
+            request,
+            "Thanks for responding! We're looking forward to seeing you soon!",
+        )
+        return redirect('index')
     return render(
         request,
         'rsvp/detail.html',
