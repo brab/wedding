@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block header %}
+<img
+  class="image-responsive"
+  src="{% static 'rsvp/banner_rsvp.jpg' %}"
+  alt="wedding banner"
+  style="width:100%;"
+>
+{% endblock %}
+
+{% block nav_active_rsvp %}active{% endblock %}
+
+{% block content %}
+<div class="row">
+  <div class="col-xs-12">
+    <h1>
+      R&eacute;pondez S'il Vous Pla&icirc;t
+    </h1>
+
+    <p>
+      Along with our parents, we sincerly hope that you will join us on August 29th, 2015 at the <a href="https://www.vancouverrowingclub.ca/" target="_blank">Vancouver Rowing Club</a> in Vancouver, British Columbia.
+    </p>
+    <p>
+      Please be sure that the boxes are checked for events that you will be attending and click on "Submit Response" when you are done.
+    </p>
+
+    <form
+      class="form-horizontal"
+      action="{% url 'rsvp_detail' guest_group.code.lower %}"
+      method="post"
+      >
+      {% csrf_token %}
+      {% if error %}
+      <div class="alert alert-warning">
+        {{ error }}
+      </div>
+      {% endif %}
+
+      <table class="table table-hover">
+        <thead>
+          {% for guest in guest_group.guest_set.all %}
+          {% if forloop.first %}
+          <tr>
+            <th></th>
+            {% for event in guest.events.all %}
+            <th>
+              {{ event.name }} ~ {{ event.datetime_start | date:'f a' }}
+            </th>
+            {% endfor %}
+          </tr>
+        </thead>
+        <tbody>
+          {% endif %}
+          <tr>
+            <td>{{ guest.name }}</td>
+            {% for attendance in guest.attendance_set.all %}
+            <td>
+              <p class="text-center">
+                <input
+                 name="attendance_{{ attendance.id }}"
+                 type="checkbox"
+                 {% if attendance.attending %}checked="checked"{% endif %}
+                 >
+              </p>
+            </td>
+            {% endfor %}
+          </tr>
+          {% endfor %}
+      </table>
+
+      <div>
+        <button
+          class="btn btn-default btn-lg pull-right"
+          type="submit"
+          >
+          Submit Response
+        </button>
+      </div>
+
+    </form>
+  </div>
+</div>
+{% endblock %}

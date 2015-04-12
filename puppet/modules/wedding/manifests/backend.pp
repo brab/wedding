@@ -14,4 +14,10 @@ class wedding::backend {
     ensure  => 'latest',
     owner   => 'root'
   }
+
+  python::pip { 'django-debug-toolbar':
+    pkgname => 'django-debug-toolbar',
+    ensure  => 'latest',
+    owner   => 'root'
+  }
 }

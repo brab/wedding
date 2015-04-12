@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block header %}
+<img
+  class="image-responsive"
+  src="{% static 'rsvp/banner_rsvp.jpg' %}"
+  alt="wedding banner"
+  style="width:100%;"
+>
+{% endblock %}
+
+{% block nav_active_rsvp %}active{% endblock %}
+
+{% block content %}
+<div class="row">
+  <div class="col-xs-12">
+    <h1>
+      R&eacute;pondez S'il Vous Pla&icirc;t
+    </h1>
+
+    <p>
+      We are very excited for you to join us on our wedding day! We've been working hard to make it fantastic, but we need our family and friends with us to make it truly memorable.
+    </p>
+    <p>
+      Please enter the word we've included with your invitation into the input below and the site will pull up your information.
+    </p>
+
+    <div class="clearfix">&nbsp;</div>
+
+    <form
+      class="form-horizontal"
+      action="{% url 'rsvp' %}"
+      method="post"
+      >
+      {% csrf_token %}
+      <div class="form-group">
+        <label class="col-sm-4 control-label" for="invite_word"></label>
+        <div class="col-sm-5">
+          <div class="input-group">
+            <input
+              class="form-control input-lg"
+              id="invite_word"
+              name="invite_word"
+              placeholder="Invite Word"
+              >
+            <span class="input-group-btn">
+              <button
+                class="btn btn-default btn-lg"
+                type="submit"
+                >
+                Next
+              </button>
+            </span>
+          </div>
+        </div>
+      </div>
+      {% if error %}
+      <div class="alert alert-warning">
+        {{ error }}
+      </div>
+      {% endif %}
+    </form>
+  </div>
+</div>
+{% endblock %}
