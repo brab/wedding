@@ -6,7 +6,7 @@ from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
 from django.shortcuts import redirect, render
 
-from rsvp.models import Attendance, GuestGroup
+from rsvp.models import Attendance, Guest, GuestGroup
 
 def detail(request, code):
     """
@@ -19,17 +19,26 @@ def detail(request, code):
         render(
             request,
             'rsvp/index.html',
-            {'error': 'Please re-enter your Invite Word', },
+            {'error': 'Please re-enter your R.S.V.P. Word', },
         )
     if request.method == 'POST':
+        print request.POST
+        guests = guest_group.guest_set.all()
         attendances = Attendance.objects.filter(
-            guest__in=guest_group.guest_set.all()
+            guest__in=guests
         )
         for attendance in attendances:
             attendance.attending = True \
                 if 'attendance_{0}'.format(attendance.id) in request.POST \
                 else False
             attendance.save()
+        for guest in guests:
+            guest.diet = request.POST.get(
+                'guest_{0}_diet'.format(guest.id),
+                'normal',
+            )
+            print guest.diet
+            guest.save()
         guest_group.responded = True
         guest_group.save()
         messages.success(
@@ -37,10 +46,14 @@ def detail(request, code):
             "Thanks for responding! We're looking forward to seeing you soon!",
         )
         return redirect('index')
+    diet_choices = Guest._meta.get_field_by_name('diet')[0].choices
     return render(
         request,
         'rsvp/detail.html',
-        {'guest_group': guest_group, },
+        {
+            'diet_choices': diet_choices,
+            'guest_group': guest_group,
+        },
     )
 
 def index(request):

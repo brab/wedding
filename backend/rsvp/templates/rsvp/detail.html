@@ -49,6 +49,7 @@
               {{ event.name }} ~ {{ event.datetime_start | date:'f a' }}
             </th>
             {% endfor %}
+            <th>Dietary Preference</th>
           </tr>
         </thead>
         <tbody>
@@ -66,6 +67,17 @@
               </p>
             </td>
             {% endfor %}
+            <td>
+              <p class="text-center">
+                <select name="guest_{{ guest.id }}_diet">
+                  {% for value, display in diet_choices %}
+                  <option value="{{ value }}"{% if guest.diet == value %} selected="selected"{% endif %}>
+                  {{ display }}
+                  </option>
+                  {% endfor %}
+                </select>
+              </p>
+            </td>
           </tr>
           {% endfor %}
       </table>

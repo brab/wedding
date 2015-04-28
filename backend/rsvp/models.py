@@ -36,6 +36,15 @@ class Guest(models.Model):
     name = models.CharField(max_length=128)
     group = models.ForeignKey(GuestGroup, blank=True, null=True, )
     events = models.ManyToManyField(Event, through='Attendance', )
+    diet = models.CharField(
+        max_length=64,
+        choices=(
+            ('normal', 'None', ),
+            ('vegetarian', 'Vegetarian', ),
+            ('vegan', 'Vegan', ),
+        ),
+        default='normal',
+    )
 
     def __unicode__(self):
         return u'{0}'.format(self.name)

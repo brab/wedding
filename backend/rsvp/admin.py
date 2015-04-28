@@ -7,8 +7,8 @@ from rsvp.models import Event, Guest, GuestGroup
 
 
 class EventInline(admin.TabularInline):
-    extra = 0
-    min_num = 1
+    extra = 1
+    min_num = 2
     model = Guest.events.through
 
 
@@ -32,6 +32,6 @@ class GuestGroupAdmin(admin.ModelAdmin):
 
 @admin.register(Guest)
 class GuestAdmin(admin.ModelAdmin):
-    fields = ['name', 'group', ]
-    list_display = ['name', 'group', ]
+    fields = ['name', 'group', 'diet', ]
+    list_display = ['name', 'group', 'diet', ]
     inlines = [EventInline, ]
