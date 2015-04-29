@@ -44,7 +44,7 @@
             <th></th>
             {% for event in events %}
             <th>
-              {{ event.name }} ~ {{ event.datetime_start | date:'f a' }}
+              {{ event.name }}<br>{{ event.datetime_start | date:'f a' }}
             </th>
             {% endfor %}
             <th>Dietary Preference</th>
