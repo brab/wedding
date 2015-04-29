@@ -13,6 +13,12 @@ class Event(models.Model):
     description = models.CharField(max_length=256)
     name = models.CharField(max_length=64)
 
+    class Meta(type):
+        """
+        Meta info
+        """
+        ordering = ['datetime_start', ]
+
     def __unicode__(self):
         return u'{0}'.format(self.name)
 
@@ -57,3 +63,9 @@ class Attendance(models.Model):
     event = models.ForeignKey(Event)
     guest = models.ForeignKey(Guest)
     attending = models.BooleanField(default=True)
+
+    class Meta(type):
+        """
+        Meta info
+        """
+        ordering = ['event', ]
