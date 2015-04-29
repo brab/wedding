@@ -82,6 +82,12 @@
           {% endfor %}
       </table>
 
+      {% for event in events %}
+      {% if event.description != ' ' %}
+      <p>{{ event.name }} - {{ event.description }}</p>
+      {% endif %}
+      {% endfor %}
+
       <div>
         <button
           class="btn btn-default btn-lg pull-right"

@@ -22,7 +22,6 @@ def detail(request, code):
             {'error': 'Please re-enter your R.S.V.P. Word', },
         )
     if request.method == 'POST':
-        print request.POST
         guests = guest_group.guest_set.all()
         attendances = Attendance.objects.filter(
             guest__in=guests
@@ -47,11 +46,13 @@ def detail(request, code):
         )
         return redirect('index')
     diet_choices = Guest._meta.get_field_by_name('diet')[0].choices
+    events = guest_group.guest_set.first().events.all()
     return render(
         request,
         'rsvp/detail.html',
         {
             'diet_choices': diet_choices,
+            'events': events,
             'guest_group': guest_group,
         },
     )
