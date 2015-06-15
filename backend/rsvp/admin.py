@@ -33,5 +33,5 @@ class GuestGroupAdmin(admin.ModelAdmin):
 @admin.register(Guest)
 class GuestAdmin(admin.ModelAdmin):
     fields = ['name', 'group', 'diet', ]
-    list_display = ['name', 'group', 'diet', ]
+    list_display = ['name', 'group', 'diet', 'attendance_list', ]
     inlines = [EventInline, ]

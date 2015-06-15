@@ -45,7 +45,7 @@ class Guest(models.Model):
     diet = models.CharField(
         max_length=64,
         choices=(
-            ('normal', 'None', ),
+            ('normal', '--', ),
             ('vegetarian', 'Vegetarian', ),
             ('vegan', 'Vegan', ),
         ),
@@ -54,6 +54,27 @@ class Guest(models.Model):
 
     def __unicode__(self):
         return u'{0}'.format(self.name)
+
+    @property
+    def responded(self):
+        """
+        Return whether this guest has responded
+        """
+        try:
+            return self.group.responded or False
+        except AttributeError:
+            return False
+
+    @property
+    def attendance_list(self):
+        """
+        Return a pretty string representation of the attendances
+        """
+        if self.responded:
+            return str(self.attendance_set.all())
+        else:
+            return 'Not yet responded'
+
 
 
 class Attendance(models.Model):
@@ -69,3 +90,10 @@ class Attendance(models.Model):
         Meta info
         """
         ordering = ['event', ]
+
+    def __unicode__(self):
+        return '{0} will {1} attending {2}'.format(
+            self.guest,
+            'be' if self.attending else 'not be',
+            self.event,
+        )
