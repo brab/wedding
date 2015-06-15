@@ -92,8 +92,8 @@ class Attendance(models.Model):
         ordering = ['event', ]
 
     def __unicode__(self):
-        return '{0} will {1} attending {2}'.format(
+        return '{0} {1} attending {2}'.format(
             self.guest,
-            'be' if self.attending else 'not be',
+            'is' if self.attending else 'WILL NOT BE',
             self.event,
         )
