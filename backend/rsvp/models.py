@@ -12,6 +12,7 @@ class Event(models.Model):
     datetime_end = models.DateTimeField()
     description = models.CharField(max_length=256)
     name = models.CharField(max_length=64)
+    uri = models.CharField(max_length=128, null=True, blank=True, )
 
     class Meta(type):
         """

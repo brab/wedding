@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block header %}
+<img
+  class="image-responsive"
+  src="{% static 'static_info/rsvp/banner_rsvp.jpg' %}"
+  alt="wedding banner"
+  style="width:100%;"
+>
+{% endblock %}
+
+{% block nav_active_rsvp %}active{% endblock %}
+
+{% block content %}
+<div class="row">
+  <div class="col-xs-12">
+    <h1>
+      Friday Dinner
+    </h1>
+    <p>
+      Ben's parents, Frieda Koplowicz and Ian Rabinovitch, invite you to please join our families for dinner at {{ event.datetime_start|date:'g:i a' }} on {{ event.datetime_start|date:'l F dS, Y' }}.
+    </p>
+    <p>
+      Dinner will be hosted at <a href="http://www.nuba.ca/nuba-in-kitsilano/" target="_blank">Nuba in Kitsilano</a>, located at <a href="https://goo.gl/maps/VKQ2F" target="_blank">3116 West Broadway in Vancouver</a>.
+    </p>
+    <p>
+      A vegetarian-friendly Mediterranean meal will be served. <a href=https://www.google.ca/#q=smart+casual" target="_blank"><em>"Smart Casual"</em></a> attire, please.
+    </p>
+    <p>
+      If you haven't already done so, please <a href="/rsvp">update your R.S.V.P.</a>
+    </p>
+  </div>
+</div>
+{% endblock %}

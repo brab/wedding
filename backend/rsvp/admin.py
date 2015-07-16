@@ -20,7 +20,7 @@ class GuestGroupInline(admin.TabularInline):
 
 @admin.register(Event)
 class EventAdmin(admin.ModelAdmin):
-    fields = ['name', 'description', 'datetime_start', 'datetime_end', ]
+    fields = ['name', 'description', 'uri', 'datetime_start', 'datetime_end', ]
     list_display = ('name', 'datetime_start', )
 
 

@@ -3,6 +3,23 @@ Static Info Views
 """
 from django.shortcuts import render
 
+from rsvp.models import Event
+
+def fri_dinner(request):
+    """
+    Friday Dinner details
+    """
+    try:
+        event = Event.objects.filter(uri__icontains='friday-dinner')[0]
+    except (Event.DoesNotExist, Event.MultipleObjectsReturned):
+        event = None
+    return render(
+        request,
+        'static_info/fri_dinner.html',
+        {
+            'event': event,
+        },
+    )
 
 def index(request):
     """

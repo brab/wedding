@@ -82,7 +82,12 @@
 
       {% for event in events %}
       {% if event.description != ' ' %}
-      <p>{{ event.name }} - {{ event.description }}</p>
+      <p>
+        {{ event.name }} -
+        <a href="{{ event.uri }}">
+          {{ event.description }}
+        </a>
+      </p>
       {% endif %}
       {% endfor %}
 
