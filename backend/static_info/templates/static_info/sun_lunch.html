@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block header %}
+<img
+  class="image-responsive"
+  src="{% static 'static_info/rsvp/banner_rsvp.jpg' %}"
+  alt="wedding banner"
+  style="width:100%;"
+>
+{% endblock %}
+
+{% block nav_active_rsvp %}active{% endblock %}
+
+{% block content %}
+<div class="row">
+  <div class="col-xs-12">
+    <h1>
+      Sunday Lunch
+    </h1>
+    <p>
+      Planning on being up late partying Saturday night? Us too. Join us and the rest of our closest friends for a brunch-menu lunch on {{ event.datetime_start|date:'l F dS, Y' }} at {{ event.datetime_start|date:'g:i a' }}
+    </p>
+    <p>
+      We're going to <a href="http://www.chicharestaurant.com/" target="_blank">Chicha</a> located at <a href="https://goo.gl/maps/WwVgv" target="_blank">136 East Broadway</a>.
+    </p>
+    <p>
+      If you haven't already done so, please <a href="/rsvp">update your R.S.V.P.</a>
+    </p>
+  </div>
+</div>
+{% endblock %}

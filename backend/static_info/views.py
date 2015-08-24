@@ -21,6 +21,22 @@ def fri_dinner(request):
         },
     )
 
+def sun_lunch(request):
+    """
+    Sunday Lunch details
+    """
+    try:
+        event = Event.objects.filter(uri__icontains='sunday-lunch')[0]
+    except (Event.DoesNotExist, Event.MultipleObjectsReturned):
+        event = None
+    return render(
+        request,
+        'static_info/sun_lunch.html',
+        {
+            'event': event,
+        },
+    )
+
 def index(request):
     """
     Static Info index view
