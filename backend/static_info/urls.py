@@ -10,7 +10,7 @@ urlpatterns = patterns( #pylint: disable=invalid-name
     '',
     url(r'^$', views.index, name='index', ),
     url(r'^friday-dinner$', views.fri_dinner, name='fri_dinner', ),
-    url(r'^sunday-lunch$', views.sun_lunch, name='sun_lunch', ),
+    url(r'^sunday-brunch$', views.sun_brunch, name='sun_brunch', ),
     url(r'^people$', views.people, name='people', ),
     url(r'^the-day$', views.itinerary, name='itinerary', ),
     url(r'^travel$', views.travel, name='travel', ),

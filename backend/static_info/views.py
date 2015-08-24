@@ -21,17 +21,17 @@ def fri_dinner(request):
         },
     )
 
-def sun_lunch(request):
+def sun_brunch(request):
     """
-    Sunday Lunch details
+    Sunday Brunch details
     """
     try:
-        event = Event.objects.filter(uri__icontains='sunday-lunch')[0]
+        event = Event.objects.filter(uri__icontains='sunday-brunch')[0]
     except (Event.DoesNotExist, Event.MultipleObjectsReturned):
         event = None
     return render(
         request,
-        'static_info/sun_lunch.html',
+        'static_info/sun_brunch.html',
         {
             'event': event,
         },
